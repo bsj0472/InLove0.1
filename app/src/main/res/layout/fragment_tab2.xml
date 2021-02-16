@@ -5,25 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tab2recycler_ver"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical">
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/tab2recycler_hor"
+            android:id="@+id/tab2recycler"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"/>
-
-    </androidx.recyclerview.widget.RecyclerView>
 
 
 

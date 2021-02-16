@@ -9,7 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+
 public class Tab4Fragment extends Fragment {
+    MaterialCalendarView calendarView;
 
     @Nullable
     @Override
@@ -20,5 +23,8 @@ public class Tab4Fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        calendarView = view.findViewById(R.id.calendar);
+
+
     }
 }

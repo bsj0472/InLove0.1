@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#57AEA5"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="24sp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/iconfinder_love128"/>
+
+
+    <EditText
+        android:id="@+id/login_email"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/login_passward"
+        android:inputType="textPassword"
+        android:hint="Passward"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:text="Login"
+        android:backgroundTint="#57AEA5"
+        android:layout_marginBottom="8dp"
+        android:onClick="clickLogin"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="or"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"/>
+    <Button
+        android:layout_gravity="center"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:backgroundTint="#57AEA5"
+        android:text="Log in with Google"
+        android:drawableLeft="@drawable/iconfinder_google"
+        android:layout_marginBottom="8dp"
+        android:onClick="clickLogingoogle"
+       />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/login_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Find PW or ID"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/login_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sign Up"
+            android:textColor="#57AEA5"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:clickable="true"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

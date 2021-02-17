@@ -40,63 +40,12 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <ImageView
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:layout_below="@+id/tv_day"
-                android:paddingRight="4dp"/>
-            <ImageView
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:layout_below="@+id/tv_day"
-                android:paddingRight="4dp"/>
-            <ImageView
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:layout_below="@+id/tv_day"
-                android:paddingRight="4dp"/>
-            <ImageView
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:layout_below="@+id/tv_day"
-                android:paddingRight="4dp"/>
-            <ImageView
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:layout_below="@+id/tv_day"
-                android:paddingRight="4dp"/>
-            <ImageView
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:layout_below="@+id/tv_day"
-                android:paddingRight="4dp"/>
-            <ImageView
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:layout_below="@+id/tv_day"
-                android:paddingRight="4dp"/>
-
-        </LinearLayout>
+     <androidx.recyclerview.widget.RecyclerView
+         android:id="@+id/tab2recycler2"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+         android:orientation="horizontal"/>
 
     </LinearLayout>
 

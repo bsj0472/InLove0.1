@@ -10,10 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InLove01"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Chatting"></activity>
         <activity android:name=".BNV" />
-        <activity android:name=".MainActivity"
-            android:windowSoftInputMode="adjustUnspecified"
-           >
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustUnspecified">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

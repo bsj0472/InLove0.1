@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <TextView
+
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="48sp"
-        android:text="영화순위"
-        android:layout_centerInParent="true"/>
+        android:layout_height="wrap_content"
+        android:text="load data from network"
+        android:backgroundTint="#57AEA5"
+        android:textAllCaps="false"
+        android:onClick="clickMovie"/>
 
-</RelativeLayout>
+
+    <ListView
+        android:id="@+id/movielisstview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+
+
+</LinearLayout>

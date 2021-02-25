@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "232251539000",
+    "project_id": "inlove-868fb",
+    "storage_bucket": "inlove-868fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232251539000:android:05815bcf2d3293dfa770cd",
+        "android_client_info": {
+          "package_name": "com.b_s_j.inlove01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232251539000-1ccr73cmtctfsuerjo0c8qjls4h7ksuk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.b_s_j.inlove01",
+            "certificate_hash": "0362654774e203dcd4d890a1cb670eeb8aaeddaa"
+          }
+        },
+        {
+          "client_id": "232251539000-nhf3d4jfd7f3bbn7h6dkkm80g8hqqrsc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDarsfuQRcrblJdIH92GRha2pEE1N56ITg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232251539000-nhf3d4jfd7f3bbn7h6dkkm80g8hqqrsc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

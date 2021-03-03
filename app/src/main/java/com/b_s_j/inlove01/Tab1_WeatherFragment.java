@@ -4,16 +4,161 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Tab1_WeatherFragment extends Fragment {
+    ArrayAdapter adapter;
+
+    ArrayList<String> items=new ArrayList<String>();
+
+    String apikey= "DWa5nDntC3naocKN9b1MiaBHUemzbLpzXGRQrUipJoahRL0gpbIORi%2ButCqrFDU1eEaa1WG%2BtTi5FM9OJ42iwQ%3D%3D";
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_tab1weather,container,false);
+        View v= inflater.inflate(R.layout.fragment_tab1weather,container,false);
+
+        ListView listView = new ListView(getActivity());
+        adapter= new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1);
+        listView.setAdapter(adapter);
+        return v;
+
     }
+
+    public void weatherClick(View view){
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                items.clear();
+
+                Date date = new Date();//지금 날짜 시간객체
+                date.setTime(date.getTime() - (1000 * 60 * 60 * 24));//지금날짜 -1 날짜
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
+                String dateStr = sdf.format(date);
+                String adress = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst"
+                        + "?key=" + apikey
+                        + "&targetDt" + dateStr
+                        + "&itemPerPage=10";
+
+                try {
+                    URL url = new URL(adress);
+                    InputStream is = url.openStream();
+                    InputStreamReader isr = new InputStreamReader(is);
+                    //  XML 문서를 분석(parse)해주는 객체 생성
+                    // Factory  필요해서 팩토리 만들고 pullparser 를 만듬 그리고 pullparser 에게 isr 연결
+                    XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                    XmlPullParser xpp = factory.newPullParser();
+                    xpp.setInput(isr);
+
+                    int eventType = xpp.getEventType();
+
+                    String tagName;
+                    StringBuffer buffer = null;
+
+                    while (eventType != XmlPullParser.END_DOCUMENT) {
+                        switch (eventType) {
+                            case XmlPullParser.START_DOCUMENT:
+                                getActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(getActivity(), "파싱중입니다.", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+                                break;
+                            case XmlPullParser.START_TAG:
+                                tagName = xpp.getName();
+                                if (tagName.equals("dailyBoxOffice")) {
+                                    buffer = new StringBuffer();
+                                } else if (tagName.equals("rank")) {
+                                    buffer.append("순위");
+                                    xpp.next();
+                                    buffer.append(xpp.getText() + "\n");
+                                    String text = xpp.getText();
+                                    buffer.append(text + "\n");
+                                } else if (tagName.equals("movieNm")) {
+                                    buffer.append("제목:");
+                                    xpp.next();
+                                    buffer.append(xpp.getText() + "\n");
+
+                                } else if (tagName.equals("openDt")) {
+                                    buffer.append("개봉일:");
+                                    xpp.next();
+                                    buffer.append(xpp.getText() + "\n");
+
+                                } else if (tagName.equals("audiAcc")) {
+                                    buffer.append("누적관객수:");
+                                    xpp.next();
+                                    buffer.append(xpp.getText() + "\n");
+                                }
+                                break;
+
+                            case XmlPullParser.TEXT:
+                                break;
+                            case XmlPullParser.END_TAG:
+                                tagName = xpp.getName();
+                                if (tagName.equals("dailyBoxOffice")) {
+                                    items.add(buffer.toString());
+
+                                    //listview
+                                    getActivity().runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            adapter.notifyDataSetChanged();
+                                        }
+                                    });
+                                }
+                                break;
+                        }
+                        eventType = xpp.next();
+                    }
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getActivity(), "파싱완료", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (XmlPullParserException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        };
+        t.start();
+    }
+
 }
+
+

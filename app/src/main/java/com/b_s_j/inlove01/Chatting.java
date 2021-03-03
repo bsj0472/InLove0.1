@@ -33,14 +33,14 @@ public class Chatting extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chatting);
+        setContentView(R.layout.fragment_tab3);
 
 
         etMsg= findViewById(R.id.et);
 
         listView= findViewById(R.id.listview);
         chatAdapter= new Tab3ChatAdapter(this, messageItems);
-        listView.setAdapter(chatAdapter);
+//        listView.setAdapter(chatAdapter);
 
 
         firebaseDatabase= FirebaseDatabase.getInstance();

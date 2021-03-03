@@ -17,7 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InLove01"
         android:usesCleartextTraffic="true">
-        <activity android:name=".chatEx"></activity>
         <activity android:name=".SignUp" />
         <activity android:name=".Chatting" />
         <activity android:name=".BNV" />

@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent =  new Intent(MainActivity.this, SignUp.class);
                 startActivity(intent);
+
             }
         });
 
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                if (oAuthToken != null) { //로그인 정보객체있으면
                    Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
 
-                   //로그인한 계저 ㅇ정보 얻어오기
+                   //로그인한 계정정보 얻어오기
                    UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
                        @Override
                        public Unit invoke(User user, Throwable throwable) {

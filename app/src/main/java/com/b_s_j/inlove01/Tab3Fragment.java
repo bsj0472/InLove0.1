@@ -26,6 +26,7 @@ public class Tab3Fragment extends Fragment {
 
     EditText etMsg;
 
+
     FirebaseDatabase firebaseDatabase;
     DatabaseReference chatRef;
 
